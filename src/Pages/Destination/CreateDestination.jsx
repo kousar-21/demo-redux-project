@@ -10,22 +10,19 @@ const CreateDestination = () => {
   const { register, handleSubmit, reset } = useForm();
   const [loading, setLoading] = useState(false);
 
-  // ✅ Local state for fake user info (instead of Redux)
+  //  Local state for fake user info (instead of Redux)
   const [userInfo] = useState({
     name: "Demo User",
     email: "demoUser@gmail.com",
   });
 
-  // ✅ Custom image upload hook
+  //  Custom image upload hook
   const { picture, handleImageUpload } = useImageUpload();
 
-  // ✅ Mutation for adding destination
+  //  Mutation for adding destination
   const { mutateAsync } = useMutation({
     mutationFn: async (data) => {
-      const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/destinations`,
-        data
-      );
+      const res = await axios.post("http://localhost:5000/api/destination",data);
       return res.data;
     },
     onSuccess: () => {
@@ -39,7 +36,7 @@ const CreateDestination = () => {
     },
   });
 
-  // ✅ Form Submission
+  //  Form Submission
   const onSubmit = async (data) => {
     setLoading(true);
 
