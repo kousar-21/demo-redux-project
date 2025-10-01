@@ -4,16 +4,17 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { ImagePlus } from "lucide-react";
-import { useSelector } from "react-redux";
 import useImageUpload from "../../Hooks/useImageUpload";
 
 const CreateDestination = () => {
   const { register, handleSubmit, reset } = useForm();
   const [loading, setLoading] = useState(false);
 
-  // ✅ Redux user data
-  const user = useSelector((state) => state.user);
-  const { name: userName, email: userEmail } = user || {};
+  // ✅ Local state for fake user info (instead of Redux)
+  const [userInfo] = useState({
+    name: "Demo User",
+    email: "demoUser@gmail.com",
+  });
 
   // ✅ Custom image upload hook
   const { picture, handleImageUpload } = useImageUpload();
@@ -46,8 +47,8 @@ const CreateDestination = () => {
     const destinationData = {
       ...data,
       image: picture || "",
-      userName,
-      userEmail,
+      userName: userInfo.name,
+      userEmail: userInfo.email,
       createdDate: new Date().toISOString(),
     };
 
