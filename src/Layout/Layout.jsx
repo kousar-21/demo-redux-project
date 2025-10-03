@@ -1,10 +1,10 @@
 import React from 'react';
-import CreateDestination from '../Pages/Destination/CreateDestination';
+import Home from '../Pages/Home/Home';
 
 const Layout = () => {
     return (
         <div>
-            <CreateDestination></CreateDestination>
+            <Home></Home>
         </div>
     );
 };
