@@ -22,12 +22,13 @@ const NewDestination = () => {
     // Mutation for adding destination
     const { mutateAsync } = useMutation({
         mutationFn: async (data) => {
-            const res = await axios.post("http://localhost:5000/api/destination", data);
+            console.log("mutant data", data)
+            const res = await axios.post("http://localhost:5000/api/destinations", data);
             return res.data;
         },
         onSuccess: () => {
             toast.success("Destination created successfully!");
-            reset();
+            // reset();
             setLoading(false);
         },
         onError: () => {
@@ -56,6 +57,7 @@ const NewDestination = () => {
             userEmail: userInfo.email,
             createdDate: new Date().toISOString(),
         };
+        console.log("destination data", destinationData)
 
         await mutateAsync(destinationData);
     };
