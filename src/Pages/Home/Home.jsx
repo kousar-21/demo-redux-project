@@ -6,7 +6,6 @@ import NewDestination from '../../Component/NewDestination/NewDestination';
 const Home = () => {
     return (
         <div>
-            <Navbar></Navbar>
             {/* <CreateDestination></CreateDestination> */}
             <NewDestination></NewDestination>
         </div>

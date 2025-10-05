@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Navbar = () => {
-    const links = <>
-    <li><Link to="">Destination2</Link></li>
-    <li><Link to="">Destination3</Link></li>
-    <li><Link to="">Destination4</Link></li>
-    </>
+    const links = (
+        <>
+            <li><Link to="/destination">Destination</Link></li>
+            <li><Link to="/payment">Payment</Link></li>
+            <li><Link to="/map">Map</Link></li>
+        </>
+    )
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">

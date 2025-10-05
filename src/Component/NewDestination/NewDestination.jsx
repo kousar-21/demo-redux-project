@@ -28,7 +28,7 @@ const NewDestination = () => {
         },
         onSuccess: () => {
             toast.success("Destination created successfully!");
-            // reset();
+            reset();
             setLoading(false);
         },
         onError: () => {
